@@ -1,0 +1,6 @@
+# هر خط یک لینک کانفیگ (vless / vmess / trojan)
+# مثال:
+# vless://uuid@your-domain-or-ip:443?security=tls&sni=example.com&type=ws&path=/path&host=example.com#MyCDN
+# vless://uuid@1.2.3.4:443?security=reality&pbk=...&sid=...&sni=www.microsoft.com&fp=chrome&type=tcp#Reality
+# trojan://password@domain:443?sni=example.com&type=ws&path=/ws#TrojanCDN
+# vmess://base64...

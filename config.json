@@ -1,0 +1,152 @@
+{
+  "_readme": "Edit this file to control the benchmark. true/false = on/off. CLI args override these values when provided.",
+  "workers": 1,
+  "_workers": "How many IPs to test at the same time. Example: 1 = safe/slow, 4 = faster but more CPU/RAM. Start with 1 on Windows.",
+  "max_ips": 0,
+  "_max_ips": "Limit how many IPs from cfip.txt are tested. 0 = test all. Example: 10 tests only the first 10 IPs.",
+  "report_name": "",
+  "_report_name": "Optional prefix for Excel/log filenames. Example: \"iran_test\" -> results/[iran_test] cf_ip_benchmark_....xlsx",
+  "clear_temp": null,
+  "_clear_temp": "After run: true = delete temp configs, false = keep them, null = ask you at the end.",
+  "display": {
+    "_comment": "What is shown on screen / written to log while running.",
+    "show_progress": true,
+    "_show_progress": "Print lines like '... measuring latency...' so the app does not look frozen. Example: false = quieter output.",
+    "show_live_result": true,
+    "_show_live_result": "Print a full result block after each IP test. Example: false = only final tables.",
+    "show_final_tables": true,
+    "_show_final_tables": "Print ranking tables at the end.",
+    "colored_output": true,
+    "_colored_output": "Reserved for colorized terminal (colorama). Keep true.",
+    "write_log_file": true,
+    "_write_log_file": "Write a live log under logs/. Example: false = no log file."
+  },
+  "baseline": {
+    "_comment": "Measures YOUR real internet WITHOUT any proxy, then compares proxy results against it.",
+    "enabled": true,
+    "_enabled": "Example: false skips the direct-connection speed test at startup."
+  },
+  "tests": {
+    "_comment": "Core speed tests run through each CF IP + config.",
+    "latency": {
+      "enabled": true,
+      "_enabled": "Ping-style RTT via Cloudflare trace. Example: false skips latency (scores that need latency will be weaker).",
+      "samples": 5,
+      "_samples": "How many latency samples per IP. Example: 3 = faster run, 10 = more accurate."
+    },
+    "download": {
+      "enabled": true,
+      "_enabled": "Download test from speed.cloudflare.com. Example: false = no download Mbps.",
+      "bytes": 250000,
+      "_bytes": "Payload size in bytes. Example: 100000 = faster/lighter, 1000000 = heavier stress test.",
+      "rounds": 2,
+      "_rounds": "How many download rounds to average. Example: 1 = quick, 3 = more stable."
+    },
+    "upload": {
+      "enabled": true,
+      "_enabled": "Upload test to speed.cloudflare.com. Example: false = skip upload (Instagram score may drop).",
+      "bytes": 80000,
+      "_bytes": "Upload payload size in bytes. Example: 50000 for slower lines.",
+      "rounds": 1,
+      "_rounds": "Upload rounds to average. Example: 2 for more accuracy."
+    }
+  },
+  "relay": {
+    "_comment": "Real-world open times to major sites (through the proxy). Disable sites you do not care about.",
+    "enabled": true,
+    "_enabled": "Master switch for all relay tests. false = skip every site below.",
+    "samples_per_site": 2,
+    "_samples_per_site": "Requests per site. Example: 1 = faster, 3 = more stable average.",
+    "sites": {
+      "Google": {
+        "enabled": true,
+        "url": "https://www.google.com/generate_204",
+        "_comment": "Example: set enabled=false to skip Google relay."
+      },
+      "Cloudflare": {
+        "enabled": true,
+        "url": "https://www.cloudflare.com/cdn-cgi/trace"
+      },
+      "YouTube": {
+        "enabled": true,
+        "url": "https://www.youtube.com/generate_204"
+      },
+      "Instagram": {
+        "enabled": true,
+        "url": "https://www.instagram.com/"
+      },
+      "GitHub": {
+        "enabled": true,
+        "url": "https://github.com/"
+      },
+      "Microsoft": {
+        "enabled": true,
+        "url": "https://www.microsoft.com/"
+      }
+    }
+  },
+  "scoring": {
+    "_comment": "Scores are always 0-10. Disable a category to ignore it in Overall and hide its Top table.",
+    "web": true,
+    "_web": "Web-browsing score (latency + download focused). Example: false hides Web score.",
+    "instagram": true,
+    "_instagram": "Instagram-oriented score (latency/jitter + upload matter more).",
+    "gaming": true,
+    "_gaming": "Gaming score (low latency + low jitter + low loss).",
+    "overall_weights": {
+      "_comment": "Weights for Overall. Do not need to sum to 1; they are normalized. Disabled categories get weight 0.",
+      "web": 0.35,
+      "instagram": 0.35,
+      "gaming": 0.3
+    }
+  },
+  "ranking": {
+    "_comment": "How the final tables are built.",
+    "top_n": 5,
+    "_top_n": "How many IPs to list in each Top table. Example: 10 shows Top 10.",
+    "sort_by": "overall",
+    "_sort_by": "Default sort key for overall ranking. Options: overall | web_score | insta_score | gaming_score | lat_avg | dl_avg",
+    "show_web_top": true,
+    "show_instagram_top": true,
+    "show_gaming_top": true,
+    "show_overall_top": true,
+    "compare_with_baseline": true,
+    "_compare_with_baseline": "Show 'vs Direct' delta column. Example: false hides comparison with your real line."
+  },
+  "timeouts": {
+    "_comment": "Timing / patience settings.",
+    "http_seconds": 12,
+    "_http_seconds": "HTTP timeout per request through the proxy. Example: 8 on fast lines, 20 on slow ones.",
+    "xray_startup_seconds": 3.0,
+    "_xray_startup_seconds": "Max wait for local SOCKS port after starting xray. Example: 5.0 if antivirus is slow."
+  },
+  "paths": {
+    "_comment": "Relative to the script folder. Change only if you rename files/folders.",
+    "cfip_file": "cfip.txt",
+    "_cfip_file": "List of CF IPs / CIDRs / domains. Formats: plain IP, CIDR, domain, or 'dl - ul - IP'.",
+    "links_file": "links.txt",
+    "_links_file": "One share-link per line (vless:// vmess:// trojan://).",
+    "temp_dir": "temp",
+    "results_dir": "results",
+    "logs_dir": "logs"
+  },
+  "excel": {
+    "enabled": true,
+    "_enabled": "Write results to results/*.xlsx. Example: false = no Excel file."
+  },
+  "filter": {
+    "_comment": "Skip bad IPs early so the run stays fast.",
+    "enabled": true,
+    "_enabled": "If true, do a quick connect check before full tests.",
+    "max_latency_ms": 2000,
+    "_max_latency_ms": "If first ping is above this (ms), skip the IP. Example: 1500 stricter, 3000 more tolerant.",
+    "quick_timeout_seconds": 3,
+    "_quick_timeout_seconds": "Short timeout for the first connectivity probe. Example: 2 on fast lines, 5 on slow.",
+    "require_exit_ip": false,
+    "_require_exit_ip": "If true, IP is skipped when exit IP cannot be read."
+  },
+  "mode": "ip_all",
+  "_mode": "ip_all | ip_one | config_only | baseline_only | cf_direct",
+  "config_index": 0,
+  "_config_index": "0-based index into links.txt when mode=ip_one"
+}

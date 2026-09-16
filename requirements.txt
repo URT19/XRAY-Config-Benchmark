@@ -1,0 +1,4 @@
+requests[socks]
+openpyxl
+colorama
+customtkinter>=5.2.0
