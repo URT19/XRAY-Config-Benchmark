@@ -35,15 +35,47 @@
 نرم افزار رو اجرا میکنم که بصورت GUI باز بشه ، فایل gui.bat رو اجرا میکنم
 
 
-<div align="center">
+
   
-<img width="1102" height="812" alt="image" src="https://github.com/user-attachments/assets/87046b42-3dcd-4469-bf37-0cf536d7f66e" />
-
-</div>
+<img width="1102" height="812" alt="gui" src="https://github.com/user-attachments/assets/87046b42-3dcd-4469-bf37-0cf536d7f66e" />
 
 
-از منوی 
 
 
+### وارد کردن آی پی های تمیز کلادفلر
+
+از منوی لیست آی پی کلادفلر ، ویرایش رو میزنم، لیست رو بروزرسانی میکنیم و ذخیره رو میزنیم.
+
+<img width="532" height="146" alt="image" src="https://github.com/user-attachments/assets/8182358f-6e7c-48a7-aab6-cf6b7537fea9" />
+
+
+---
+
+
+### وارد کردن لینک کانفیگ پشت کلادفلر
+
+از منوی لینک کانفیگ، روی ویرایش میزنیم و لیست کانفیگ کلادفلر رو وارد میکنیم و در انتها ذخیره میکنیم.
+
+
+<img width="525" height="116" alt="image" src="https://github.com/user-attachments/assets/740626f6-18c0-4a0c-9c45-24914dd25c09" />
+
+
+
+### حالت اجرای تست آی پی های کلادفلر روی یک کانفیگ
+
+
+از منوی حالت اجرا، از لیست کشویی حالت اجرا رو روی اسکنر آی پی. کانفیگ انتخابی گذاشته و از منوی انتخاب کانفیگ ، کانفیگ مورد نظرمون رو انتخاب میکنیم
+
+<img width="526" height="252" alt="image" src="https://github.com/user-attachments/assets/783ce39d-ff05-4111-aea7-152d465347f1" />
+
+
+در انتها روی شروع بنچمارک میزنیم تا شروع به گرفتن تست و آزمایش سرعت روی آی پی ها انجام بشه
+
+<img width="231" height="123" alt="image" src="https://github.com/user-attachments/assets/aa4a2645-768a-4ad3-96da-e9cb96dbee93" />
+
+
+
+
+در آخر سر نتیجه آزمایش توی فولدر 
 
 
