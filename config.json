@@ -1,0 +1,105 @@
+```json
+{
+  "workers": 1,
+  "max_ips": 0,
+  "report_name": "",
+  "clear_temp": null,
+  "display": {
+    "show_progress": true,
+    "show_live_result": true,
+    "show_final_tables": true,
+    "colored_output": true,
+    "write_log_file": true
+  },
+  "baseline": {
+    "enabled": true
+  },
+  "tests": {
+    "latency": {
+      "enabled": true,
+      "samples": 5
+    },
+    "download": {
+      "enabled": true,
+      "bytes": 250000,
+      "rounds": 2
+    },
+    "upload": {
+      "enabled": true,
+      "bytes": 80000,
+      "rounds": 1
+    }
+  },
+  "relay": {
+    "enabled": true,
+    "samples_per_site": 2,
+    "sites": {
+      "Google": {
+        "enabled": true,
+        "url": "https://www.google.com/generate_204"
+      },
+      "Cloudflare": {
+        "enabled": true,
+        "url": "https://www.cloudflare.com/cdn-cgi/trace"
+      },
+      "YouTube": {
+        "enabled": true,
+        "url": "https://www.youtube.com/generate_204"
+      },
+      "Instagram": {
+        "enabled": true,
+        "url": "https://www.instagram.com/"
+      },
+      "GitHub": {
+        "enabled": true,
+        "url": "https://github.com/"
+      },
+      "Microsoft": {
+        "enabled": true,
+        "url": "https://www.microsoft.com/"
+      }
+    }
+  },
+  "scoring": {
+    "web": true,
+    "instagram": true,
+    "gaming": true,
+    "overall_weights": {
+      "web": 0.35,
+      "instagram": 0.35,
+      "gaming": 0.3
+    }
+  },
+  "ranking": {
+    "top_n": 5,
+    "sort_by": "overall",
+    "show_web_top": true,
+    "show_instagram_top": true,
+    "show_gaming_top": true,
+    "show_overall_top": true,
+    "compare_with_baseline": true
+  },
+  "timeouts": {
+    "http_seconds": 12,
+    "xray_startup_seconds": 3.0
+  },
+  "paths": {
+    "cfip_file": "cfip.txt",
+    "links_file": "links.txt",
+    "temp_dir": "temp",
+    "results_dir": "results",
+    "logs_dir": "logs"
+  },
+  "excel": {
+    "enabled": true
+  },
+  "filter": {
+    "enabled": true,
+    "max_latency_ms": 2000,
+    "quick_timeout_seconds": 3,
+    "require_exit_ip": false
+  },
+  "mode": "ip_all",
+  "config_index": 0
+}
+```
