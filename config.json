@@ -1,5 +1,5 @@
 {
-  "mode": "ip_all",
+  "mode": "config_only",
   "workers": 1,
   "max_ips": 0,
   "report_name": "",
