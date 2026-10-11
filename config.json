@@ -1,4 +1,5 @@
 {
+  "mode": "ip_all",
   "workers": 1,
   "max_ips": 0,
   "report_name": "",
@@ -98,6 +99,5 @@
     "quick_timeout_seconds": 3,
     "require_exit_ip": false
   },
-  "mode": "ip_all",
   "config_index": 0
 }
