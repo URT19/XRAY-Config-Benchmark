@@ -1,4 +1,3 @@
-```json
 {
   "workers": 1,
   "max_ips": 0,
@@ -102,4 +101,3 @@
   "mode": "ip_all",
   "config_index": 0
 }
-```
